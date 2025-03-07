@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Cumpleaños, Amor</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(to bottom, #ffccff, #ff99ff);
+            flex-direction: column;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+            position: relative;
+        }
+        h1 {
+            color: #b30086;
+            z-index: 10;
+        }
+        .tulipanes {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .tulipan {
+            position: absolute;
+            bottom: -100px;
+            width: 50px;
+            animation: flotar 6s linear infinite;
+        }
+        @keyframes flotar {
+            0% { transform: translateY(0); opacity: 1; }
+            100% { transform: translateY(-120vh); opacity: 0; }
+        }
+        .mensaje {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            display: none;
+            z-index: 10;
+        }
+        .boton {
+            background: #b30086;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 20px;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body>
+    <h1>🌷 Feliz Cumpleaños, Mi Amor 🌷</h1>
+    <div class="tulipanes" id="tulipanes"></div>
+    <button class="boton" onclick="mostrarMensaje()">Presiona para tu sorpresa</button>
+    <div class="mensaje" id="mensaje">
+        <h2>Te amo muchísimo ❤️</h2>
+        <p>Eres la persona más especial en mi vida y deseo que este día sea tan hermoso como tú.✨</p>
+    </div>
+
+    <script>
+        function generarTulipanes() {
+            const contenedor = document.getElementById("tulipanes");
+            for (let i = 0; i < 15; i++) {
+                let img = document.createElement("img");
+                img.src = "https://www.pngmart.com/files/1/Tulip-PNG-Transparent-Image.png";
+                img.className = "tulipan";
+                img.style.left = `${Math.random() * 90}%`;
+                img.style.animationDelay = `${Math.random() * 5}s`;
+                img.style.animationDuration = `${Math.random() * 4 + 3}s`;
+                contenedor.appendChild(img);
+            }
+        }
+        function mostrarMensaje() {
+            document.getElementById("mensaje").style.display = "block";
+        }
+        generarTulipanes();
+    </script>
+</body>
+</html>
